@@ -11,7 +11,7 @@ const slides = [
     title: "iPhone 14 Series",
     discount: "Up to 10%",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5Yg66XrAReo5lQCzVGtLf1eZbaZUov.png",
+      "/placeholder.svg?height=400&width=600",
     link: "/promos/iphone-14",
   },
   {

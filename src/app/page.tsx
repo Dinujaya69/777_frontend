@@ -1,9 +1,15 @@
-import React from 'react'
+import { PromoCarousel } from "@/components/common/PromoCarousel";
+import MainLayout from "@/components/Layouts/MainLayout";
+import React from "react";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <MainLayout>
+      <div>
+        <PromoCarousel />
+      </div>
+    </MainLayout>
+  );
+};
 
-export default Home
+export default Home;

@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <header className="fixed top-0 right-0 left-0 md:left-60 h-16 bg-[#FFFDF0] border-b z-40 shadow-sm">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image

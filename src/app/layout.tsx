@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import{Header} from "@/components/common/Header";
+import Sidebar from "@/components/common/Sidebar";
 
 
 
@@ -17,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
         {children}
       </body>
     </html>
