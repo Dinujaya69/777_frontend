@@ -57,7 +57,7 @@ export function PromoCarousel() {
                 </motion.h2>
                 <Button
                   variant="outline"
-                  className="w-fit mt-4 bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors"
+                  className="w-fit mt-4 bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors "
                 >
                   Shop Now
                 </Button>
