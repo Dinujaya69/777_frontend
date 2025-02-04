@@ -3,13 +3,12 @@ import ProductGrid from "@/components/Hero/ProductCarosol";
 import MainLayout from "@/components/Layouts/MainLayout";
 import React from "react";
 
-const Home = () => {
+const page = () => {
   return (
     <MainLayout>
-      <PromoCarousel />
-      <ProductGrid />
+      <div></div>
     </MainLayout>
   );
 };
 
-export default Home;
+export default page;

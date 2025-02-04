@@ -4,31 +4,8 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-const slides = [
-  {
-    id: 1,
-    title: "iPhone 14 Series",
-    discount: "Up to 10%",
-    image:
-      "/placeholder.svg?height=400&width=600",
-    link: "/promos/iphone-14",
-  },
-  {
-    id: 2,
-    title: "Samsung S23 Ultra",
-    discount: "Up to 15%",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "/promos/samsung-s23",
-  },
-  {
-    id: 3,
-    title: "Google Pixel 8",
-    discount: "Up to 12%",
-    image: "/placeholder.svg?height=400&width=600",
-    link: "/promos/pixel-8",
-  },
-];
+import { motion } from "framer-motion";
+import { promoSlides } from "@/data/promoData";
 
 export function PromoCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -43,38 +20,52 @@ export function PromoCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="relative overflow-hidden bg-black" ref={emblaRef}>
+    <div className="relative overflow-hidden bg-gray-900" ref={emblaRef}>
       <div className="flex">
-        {slides.map((slide) => (
-          <div key={slide.id} className="relative flex-[0_0_100%] min-w-0">
+        {promoSlides.map((slide) => (
+          <div
+            key={slide.id}
+            className="relative flex-[0_0_100%] min-w-0 h-[760px]"
+          >
             <div className="relative h-[400px] w-full">
-              {/* Content overlay */}
-              <div className="absolute inset-0 z-10 flex flex-col justify-center p-12">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={slide.animation}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="absolute inset-0 z-10 flex flex-col justify-center p-12"
+              >
                 <div className="flex items-center gap-2 mb-4">
                   <Image
                     src="/apple-white.svg"
-                    alt="Apple"
+                    alt="Brand"
                     width={24}
                     height={24}
                     className="brightness-0 invert"
                   />
                   <span className="text-white text-sm">{slide.title}</span>
                 </div>
-                <h2 className="text-4xl font-bold text-white mb-2">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-4xl font-bold text-white mb-2"
+                >
                   {slide.discount}
-                  <span className="block text-2xl mt-1">off Voucher</span>
-                </h2>
+                  <span className="block text-2xl mt-1">
+                    {slide.description}
+                  </span>
+                </motion.h2>
                 <Button
                   variant="outline"
                   className="w-fit mt-4 bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors"
                 >
                   Shop Now
                 </Button>
-              </div>
+              </motion.div>
 
-              {/* Background image */}
+              {/* Background Image */}
               <Image
-                src={slide.image || "/placeholder.svg"}
+                src={slide.image}
                 alt={slide.title}
                 fill
                 className="object-cover"
@@ -85,9 +76,9 @@ export function PromoCarousel() {
         ))}
       </div>
 
-      {/* Navigation dots */}
+      {/* Navigation Dots */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, index) => (
+        {promoSlides.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all ${

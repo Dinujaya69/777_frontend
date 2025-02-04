@@ -1,24 +1,34 @@
-import { ReactNode } from "react";
-import {Header} from "../common/Header";
-import Sidebar from "../common/Sidebar";
+"use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-type LayoutProps = {
-  children: ReactNode;
-};
+import Sidebar from "@/components/common/Sidebar";
+import { Header } from "@/components/common/Header";
 
-const MainLayout = ({ children }: LayoutProps) => {
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function MainLayout({ children }: MainLayoutProps) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
+
   return (
-    <div className="flex flex-col min-h-screen ">
-      <Header />
-      <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          {children}
-        </main>
+    <div className="min-h-screen bg-[#F9FAFB]">
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      <Sidebar />
+
+      <div className="md:ml-60 min-h-screen flex flex-col">
+        <Header />
+
+        <main className="flex-1 p-4">{children}</main>
       </div>
     </div>
   );
-};
-
-export default MainLayout;
+}
