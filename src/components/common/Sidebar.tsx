@@ -24,7 +24,7 @@ const categories = [
     hasSubmenu: false,
   },
   { name: "T-Shirts", href: "/shirts", icon: Shirt, hasSubmenu: false },
-  { name: "About", href: "/about", icon: Info, hasSubmenu: false },
+  { name: "About", href: "/ab, hasSubmenu: false },
   { name: "Contact", href: "/contact", icon: Mail, hasSubmenu: false },
 ];
 
