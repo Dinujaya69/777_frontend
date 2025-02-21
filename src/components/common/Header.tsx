@@ -3,14 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FiShoppingCart, FiSearch, FiMenu, FiX } from "react-icons/fi";
-import { User } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
-  const [signedUp, setSignedUp] = useState(false);
+
 
   useEffect(() => {
     // Simulating cart item count update
@@ -81,7 +80,7 @@ export const Header = () => {
             Contact
           </MobileNavLink>
           <MobileNavLink
-            href="/pages/about"
+            href="/pages/aboutus"
             onClick={() => setIsMenuOpen(false)}
           >
             About

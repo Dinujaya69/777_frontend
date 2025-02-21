@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const categories = [
   { name: "Home", href: "/", icon: Home },
-  { name: "All Products", href: "/products", icon: ShoppingBag },
+  { name: "All Products", href: "/pages/products", icon: ShoppingBag },
   { name: "T-Shirts", href: "/shirts", icon: Shirt },
-  { name: "About", href: "/about", icon: Info },
-  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "About", href: "/pages/aboutus", icon: Info },
+  { name: "Contact", href: "/pages/contact", icon: Mail },
 ];
 
 interface SidebarProps {

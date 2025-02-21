@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -105,83 +106,13 @@ const AboutPage = () => {
                 className="backdrop-blur-xl bg-white/10 rounded-2xl p-6 text-center"
                 whileHover={{ scale: 1.05 }}
               >
-                <motion.div
-                  className="mx-auto w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-white/20 to-white/5 flex items-center justify-center"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.8 }}
-                >
+                <div className="mx-auto w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-white/20 to-white/5 flex items-center justify-center">
                   <stat.icon className="w-8 h-8" />
-                </motion.div>
+                </div>
                 <h3 className="text-2xl font-bold">{stat.value}</h3>
                 <p className="text-gray-400">{stat.label}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Features Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="py-16 px-4 relative"
-      >
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="backdrop-blur-xl bg-white/10 rounded-2xl p-8"
-            >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500/20 to-purple-500/10 flex items-center justify-center mb-6"
-              >
-                <Printer className="w-8 h-8 text-purple-400" />
-              </motion.div>
-              <h3 className="text-2xl font-bold mb-4">Premium Printing</h3>
-              <p className="text-gray-400">
-                State-of-the-art printing technology ensuring vibrant,
-                long-lasting designs that stand the test of time.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="backdrop-blur-xl bg-white/10 rounded-2xl p-8"
-            >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-500/10 flex items-center justify-center mb-6"
-              >
-                <Star className="w-8 h-8 text-blue-400" />
-              </motion.div>
-              <h3 className="text-2xl font-bold mb-4">Quality Materials</h3>
-              <p className="text-gray-400">
-                Premium cotton blends and sustainable fabrics that feel as good
-                as they look.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="backdrop-blur-xl bg-white/10 rounded-2xl p-8"
-            >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500/20 to-green-500/10 flex items-center justify-center mb-6"
-              >
-                <Trophy className="w-8 h-8 text-green-400" />
-              </motion.div>
-              <h3 className="text-2xl font-bold mb-4">Custom Design</h3>
-              <p className="text-gray-400">
-                Expert designers ready to bring your vision to life with unique,
-                personalized artwork.
-              </p>
-            </motion.div>
           </div>
         </div>
       </motion.section>
