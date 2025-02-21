@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { FiShoppingCart, FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { User } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
@@ -52,17 +51,14 @@ export const Header = () => {
                 <FiMenu className="w-5 h-5 text-white" />
               )}
             </button>
+  
             <div>
-              {!signedUp ? (
-                <button
-                  onClick={() => setSignedUp(true)}
-                  className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-300 transition-colors"
-                >
-                  Sign Up
-                </button>
-              ) : (
-                <User className="w-8 h-8 text-white" />
-              )}
+              <Link
+                href="/pages/auth"
+                className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-300 transition-colors inline-block"
+              >
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>
@@ -91,7 +87,7 @@ export const Header = () => {
             About
           </MobileNavLink>
           <MobileNavLink
-            href="/pages/login"
+            href="/pages/auth"
             onClick={() => setIsMenuOpen(false)}
           >
             Sign Up
