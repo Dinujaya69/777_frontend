@@ -6,7 +6,8 @@ import React from "react";
 const page = () => {
   return (
     <MainLayout>
-      <div></div>
+      <PromoCarousel />
+      <ProductGrid />
     </MainLayout>
   );
 };

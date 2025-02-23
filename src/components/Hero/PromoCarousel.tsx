@@ -16,39 +16,35 @@ export function PromoCarousel() {
       emblaApi.on("select", () => {
         setSelectedIndex(emblaApi.selectedScrollSnap());
       });
+
+      // Auto-scroll every 4 seconds
+      const intervalId = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 5000);
+      return () => clearInterval(intervalId);
     }
   }, [emblaApi]);
 
   return (
-    <div className="relative overflow-hidden bg-gray-900" ref={emblaRef}>
+    <div className="relative overflow-hidden" ref={emblaRef}>
       <div className="flex">
         {promoSlides.map((slide) => (
-          <div
-            key={slide.id}
-            className="relative flex-[0_0_100%] min-w-0 h-[760px]"
-          >
-            <div className="relative h-[400px] w-full">
+          <div key={slide.id} className="relative w-full h-[800px] shrink-0">
+            <div className="relative h-full w-full">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={slide.animation}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="absolute inset-0 z-10 flex flex-col justify-center p-12"
+                className="absolute inset-0 z-10 flex flex-col justify-center p-12 text-white"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <Image
-                    src="/apple-white.svg"
-                    alt="Brand"
-                    width={24}
-                    height={24}
-                    className="brightness-0 invert"
-                  />
-                  <span className="text-white text-sm">{slide.title}</span>
+                  <span className="text-sm">{slide.title}</span>
                 </div>
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-4xl font-bold text-white mb-2"
+                  className="text-4xl font-bold mb-2"
                 >
                   {slide.discount}
                   <span className="block text-2xl mt-1">
@@ -57,18 +53,17 @@ export function PromoCarousel() {
                 </motion.h2>
                 <Button
                   variant="outline"
-                  className="w-fit mt-4 bg-transparent text-white border-white hover:bg-white hover:text-black transition-colors "
+                  className="w-fit mt-4 bg-transparent border-white hover:bg-white hover:text-black transition-colors"
                 >
                   Shop Now
                 </Button>
               </motion.div>
 
-              {/* Background Image */}
               <Image
                 src={slide.image}
                 alt={slide.title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-50"
                 priority={slide.id === 1}
               />
             </div>

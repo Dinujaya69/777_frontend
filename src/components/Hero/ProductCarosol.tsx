@@ -6,6 +6,7 @@ import { Heart, Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { categories, products } from "@/data/productData";
+import Image from "next/image";
 
 export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -55,7 +56,7 @@ export default function ProductGrid() {
             >
               {/* Product Image */}
               <div className="relative aspect-square bg-gray-100 mb-4">
-                <img
+                <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
                   className="w-full h-full object-cover"

@@ -1,14 +1,11 @@
-import { PromoCarousel } from "@/components/Hero/PromoCarousel";
-import ProductGrid from "@/components/Hero/ProductCarosol";
-import MainLayout from "@/components/Layouts/MainLayout";
+
 import React from "react";
 
 const Home = () => {
   return (
-    <MainLayout>
-      <PromoCarousel />
-      <ProductGrid />
-    </MainLayout>
+    <div>
+      <h1>Home</h1>
+    </div>
   );
 };
 

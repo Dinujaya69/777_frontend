@@ -1,38 +1,30 @@
+import caro1 from "@/assets/carosal/caro1.jpg";
+import caro2 from "@/assets/carosal/caro2.jpg";
+import caro3 from "@/assets/carosal/caro3.jpg";
+
 export const promoSlides = [
   {
     id: 1,
-    title: "iPhone 15 Pro",
+    title: "Dragon Ball Z T-Shirt",
     discount: "Save 15%",
-    description: "Experience the future with the new A17 chip.",
-    image: "/images/iphone15.jpg",
-    link: "/promos/iphone-15",
+    description: "Unleash your power with this iconic design.",
+    image: caro1,
     animation: { y: [50, 0], opacity: [0, 1] },
   },
   {
     id: 2,
-    title: "Samsung Galaxy Z Fold 5",
+    title: "Naruto Shippuden T-Shirt",
     discount: "Exclusive 20% Off",
-    description: "Unfold the possibilities of next-gen tech.",
-    image: "/images/samsung-fold.jpg",
-    link: "/promos/galaxy-fold",
+    description: "Run your path with this powerful design.",
+    image: caro2,
     animation: { scale: [0.8, 1], opacity: [0, 1] },
   },
   {
     id: 3,
-    title: "Google Pixel 8 Pro",
+    title: "Attack on Titan T-Shirt",
     discount: "Limited Time 10% Off",
-    description: "AI-powered photography redefined.",
-    image: "/images/pixel8.jpg",
-    link: "/promos/pixel-8",
+    description: "Gear up for battle with this heroic design.",
+    image: caro3,
     animation: { x: [-50, 0], opacity: [0, 1] },
-  },
-  {
-    id: 4,
-    title: "OnePlus 12",
-    discount: "Up to 18% Off",
-    description: "Flagship killer reloaded with Snapdragon 8 Gen 3.",
-    image: "/images/oneplus12.jpg",
-    link: "/promos/oneplus-12",
-    animation: { rotate: [-10, 0], opacity: [0, 1] },
   },
 ];
