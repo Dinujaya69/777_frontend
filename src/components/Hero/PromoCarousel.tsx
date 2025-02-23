@@ -10,19 +10,19 @@ import { promoSlides } from "@/data/promoData";
 export function PromoCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [key, setKey] = React.useState(0); // Key to re-trigger animations
+  const [key, setKey] = React.useState(0); 
 
   React.useEffect(() => {
     if (emblaApi) {
       emblaApi.on("select", () => {
         setSelectedIndex(emblaApi.selectedScrollSnap());
-        setKey((prevKey) => prevKey + 1); // Force re-animation
+        setKey((prevKey) => prevKey + 1); 
       });
 
-      // Auto-scroll every 4 seconds & restart animations
+      // Auto-scroll every 5 seconds & restart animations
       const intervalId = setInterval(() => {
         emblaApi.scrollNext();
-        setKey((prevKey) => prevKey + 1); // Force re-animation on scroll
+        setKey((prevKey) => prevKey + 1); 
       }, 5000);
       return () => clearInterval(intervalId);
     }
@@ -30,16 +30,16 @@ export function PromoCarousel() {
 
   return (
     <div className="relative overflow-hidden" ref={emblaRef}>
-      <div className="flex">
+      <div className="flex ">
         {promoSlides.map((slide, index) => (
           <div key={slide.id} className="relative w-full h-[800px] shrink-0">
             <div className="relative h-full w-full">
               <motion.div
-                key={key} 
+                key={key}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="absolute inset-0 z-10 flex flex-col justify-center p-8 md:p-12 text-white"
+                className="absolute inset-0 z-10 flex flex-col items-center justify-center object-center p-8 md:p-12 text-white"
               >
                 {/* Title Animation */}
                 <motion.div
