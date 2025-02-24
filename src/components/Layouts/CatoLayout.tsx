@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 import Sidebar from "@/components/common/Sidebar";
 import { Header } from "@/components/common/Header";
@@ -12,7 +11,7 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const router = useRouter();
+ 
 
   return (
     <div className="min-h-screen bg-[#F9FAFB]">

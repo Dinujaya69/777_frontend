@@ -31,7 +31,7 @@ export function PromoCarousel() {
   return (
     <div className="relative overflow-hidden" ref={emblaRef}>
       <div className="flex ">
-        {promoSlides.map((slide, index) => (
+        {promoSlides.map((slide) => (
           <div key={slide.id} className="relative w-full h-[800px] shrink-0">
             <div className="relative h-full w-full">
               <motion.div

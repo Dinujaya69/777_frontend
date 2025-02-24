@@ -3,15 +3,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
-  Phone,
-  MapPin,
   Upload,
   User,
   Pencil,
-  Clock,
-  Instagram,
-  Facebook,
-  Twitter,
   MessageSquare,
   CheckCircle,
 } from "lucide-react";
@@ -76,12 +70,6 @@ const ContactPage = () => {
     },
   ];
 
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 },
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
      
@@ -113,7 +101,6 @@ const ContactPage = () => {
         </motion.div>
       </motion.section>
 
-      {/* Contact Tabs */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
