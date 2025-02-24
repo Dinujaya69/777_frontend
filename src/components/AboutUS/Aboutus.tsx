@@ -14,6 +14,8 @@ import {
   Users,
   Clock,
   ThumbsUp,
+  CheckCircle,
+  Pencil,
 } from "lucide-react";
 
 const AboutPage = () => {
@@ -30,6 +32,11 @@ const AboutPage = () => {
     { icon: Twitter, color: "bg-blue-400" },
     { icon: Youtube, color: "bg-red-600" },
   ];
+    const fadeIn = {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.5 },
+    };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
@@ -116,6 +123,64 @@ const AboutPage = () => {
           </div>
         </div>
       </motion.section>
+        {/* Shop Info Cards */}
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="py-12 px-4"
+            >
+              <div className="container mx-auto">
+                <h2 className="text-3xl font-bold mb-8 text-center">Why Choose Us</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <motion.div
+                    {...fadeIn}
+                    transition={{ delay: 0.5 }}
+                    className="backdrop-blur-md bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-4">
+                      <CheckCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-medium mb-2">Premium Quality</h3>
+                    <p className="text-gray-300">
+                      We use only the highest quality materials for our custom
+                      t-shirts to ensure comfort and durability.
+                    </p>
+                  </motion.div>
+      
+                  <motion.div
+                    {...fadeIn}
+                    transition={{ delay: 0.6 }}
+                    className="backdrop-blur-md bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-4">
+                      <Pencil className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-medium mb-2">Custom Designs</h3>
+                    <p className="text-gray-300">
+                      Our talented designers will work with you to bring your unique
+                      vision to life exactly as you imagined.
+                    </p>
+                  </motion.div>
+      
+                  <motion.div
+                    {...fadeIn}
+                    transition={{ delay: 0.7 }}
+                    className="backdrop-blur-md bg-white/5 p-6 rounded-xl hover:bg-white/10 transition-all"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mb-4">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-medium mb-2">Fast Turnaround</h3>
+                    <p className="text-gray-300">
+                      From concept to delivery, we pride ourselves on quick turnaround
+                      times without sacrificing quality.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.section>
+      
 
       {/* Contact & Social Section */}
       <motion.section
