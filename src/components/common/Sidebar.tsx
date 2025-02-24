@@ -11,7 +11,7 @@ const categories = [
   { name: "All Products", href: "/pages/products", icon: ShoppingBag },
   { name: "T-Shirts", href: "/shirts", icon: Shirt },
   { name: "About", href: "/pages/aboutus", icon: Info },
-  { name: "Contact", href: "/pages/contact", icon: Mail },
+  { name: "Contact", href: "/pages/contactus", icon: Mail },
 ];
 
 interface SidebarProps {
