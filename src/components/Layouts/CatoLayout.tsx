@@ -34,9 +34,10 @@ export default function CatoLayout({ children }: CatoLayoutProps) {
       <Sidebar />
 
       <div className="md:ml-60 min-h-screen flex flex-col">
-        <Header />
-        <AnimatedBackground title={title} />
-        <main className="flex-1 p-6">{children}</main>
+        <Header />  
+          <AnimatedBackground title={title} />
+
+        <main>{children}</main>
       </div>
     </div>
   );
