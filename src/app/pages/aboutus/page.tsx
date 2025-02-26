@@ -1,13 +1,13 @@
 
 import AboutPage from "@/components/AboutUS/Aboutus";
-import MainLayout from "@/components/Layouts/MainLayout";
+import CatoLayout from "@/components/Layouts/CatoLayout";
 import React from "react";
 
 const page = () => {
   return (
-    <MainLayout>
-     <AboutPage />
-    </MainLayout>
+    <CatoLayout>
+      <AboutPage />
+    </CatoLayout>
   );
 };
 
