@@ -78,12 +78,9 @@ const ContactPage = () => {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center pt-24 pb-12 px-4 relative overflow-hidden"
+        className="text-center pt-10   relative overflow-hidden"
       >
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute w-64 h-64 rounded-full bg-red-600 blur-3xl -top-10 -right-10"></div>
-          <div className="absolute w-64 h-64 rounded-full bg-purple-600 blur-3xl -bottom-10 -left-10"></div>
-        </div>
+      
 
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
@@ -91,9 +88,6 @@ const ContactPage = () => {
           transition={{ duration: 0.6 }}
           className="relative z-1"
         >
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-6">
-            Contact Us
-          </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Get in touch with us or share your custom t-shirt idea! Let's bring
             your vision to life.

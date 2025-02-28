@@ -43,30 +43,6 @@ const AboutPage = () => {
         animate={{ opacity: 1 }}
         className="relative overflow-hidden pt-32 pb-16 px-4"
       >
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute h-[40vh] w-[40vh] rounded-full bg-gradient-to-r from-white/5 to-transparent"
-              animate={{
-                x: ["0%", "100%", "0%"],
-                y: ["0%", "100%", "0%"],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 15,
-                delay: i * 5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              style={{
-                left: `${30 * i}%`,
-                top: `${20 * i}%`,
-              }}
-            />
-          ))}
-        </div>
-
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
