@@ -2,15 +2,32 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Eye, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, Eye, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { categories, products } from "@/data/productData";
 import Image from "next/image";
+import ProductModal from "@/components/Product/ProductModel";
 
 export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [showModal, setShowModal] = useState(false);
+
+ const handleViewProduct = (product: any) => {
+   setSelectedProduct(product);
+   setShowModal(true);
+   // Prevent scrolling when modal is open
+   document.body.style.overflow = "hidden";
+ };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedProduct(null);
+    // Re-enable scrolling
+    document.body.style.overflow = "auto";
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -59,7 +76,8 @@ export default function ProductGrid() {
                 <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
 
                 {/* Quick Actions Overlay */}
@@ -75,6 +93,7 @@ export default function ProductGrid() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="p-2 bg-white rounded-full"
+                        onClick={() => handleViewProduct(product)}
                       >
                         <Eye className="w-5 h-5" />
                       </motion.button>
@@ -99,6 +118,7 @@ export default function ProductGrid() {
                 className="w-full bg-[#8B1919] hover:bg-[#6B1414] text-white py-2 px-4 rounded"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => handleViewProduct(product)}
               >
                 SELECT OPTIONS
               </motion.button>
@@ -116,6 +136,40 @@ export default function ProductGrid() {
           <ChevronRight className="w-6 h-6" />
         </Button>
       </div>
+
+      {/* Product Modal */}
+      <AnimatePresence>
+        {showModal && selectedProduct && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-y-auto"
+            onClick={handleCloseModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-lg w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative">
+                <button
+                  className="absolute right-4 top-4 z-10 p-2 bg-white/80 rounded-full hover:bg-white"
+                  onClick={handleCloseModal}
+                >
+                  <X className="w-6 h-6" />
+                </button>
+                <ProductModal
+                  product={selectedProduct}
+                  onClose={handleCloseModal}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
