@@ -35,7 +35,43 @@ const AboutPage = () => {
       transition: { duration: 0.5 },
     };
 
-  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="relative overflow-hidden pt-32 pb-16 px-4"
+      >
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-6">
+              777th Achument
+            </h1>
+            <motion.div
+              className="h-1 w-24 bg-gradient-to-r from-white to-gray-400 mx-auto rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: 96 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            />
+            <p className="text-xl text-gray-300 mt-6 max-w-2xl mx-auto">
+              Crafting premium custom t-shirts that tell your story. We blend
+              artistic vision with quality materials to create wearable
+              masterpieces.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Stats Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
         className="py-16 px-4"
       >
