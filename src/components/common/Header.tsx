@@ -9,16 +9,26 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
-
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Simulating cart item count update
-    setCartItemCount(3);
+    setCartItemCount(3); // Simulating cart item count update
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <header className="sticky top-0 w-full h-16 bg-[#08090a] border-b border-gray-700 z-40 shadow-sm">
+      <header
+        className={`sticky top-0 w-full h-16 z-40 backdrop-blur-md transition-colors duration-300 ${
+          isScrolled ? "bg-transparent" : "bg-[#08090a] "
+        }`}
+      >
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div></div>
 
@@ -50,7 +60,7 @@ export const Header = () => {
                 <FiMenu className="w-5 h-5 text-white" />
               )}
             </button>
-  
+
             <div>
               <Link
                 href="/pages/auth"

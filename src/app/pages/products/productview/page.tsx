@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function Page() {
+export default function Product() {
   const [selectedSize, setSelectedSize] = useState("XS");
   const [quantity, setQuantity] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
